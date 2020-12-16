@@ -18,3 +18,21 @@ document.querySelector('.post-link-like').addEventListener('click', function (ev
   var likeIconHref = likeIcon.getAttribute('xlink:href');
   likeIcon.setAttribute('xlink:href', "".concat(likeIconHref, "-active"));
 });
+document.querySelector('.create-post-text').addEventListener('focus', function (ev) {
+  var currentTarget = ev.currentTarget;
+  var isEmpty = currentTarget.textContent.trim() === currentTarget.getAttribute('placeholder');
+
+  if (isEmpty) {
+    currentTarget.textContent = '';
+    currentTarget.classList.remove('is-empty');
+  }
+});
+document.querySelector('.create-post-text').addEventListener('blur', function (ev) {
+  var currentTarget = ev.currentTarget;
+  var isEmpty = currentTarget.textContent.trim() === '';
+
+  if (isEmpty) {
+    currentTarget.textContent = currentTarget.getAttribute('placeholder');
+    currentTarget.classList.add('is-empty');
+  }
+});

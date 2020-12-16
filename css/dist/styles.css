@@ -264,11 +264,13 @@ aside.menu-sidebar .more {
   width: 100%;
   font-size: 14px;
   line-height: 22px;
+  color: #565656;
+}
+.create-post .create-post-body .create-post-text.is-empty {
   color: #8c8c8c;
 }
 .create-post .create-post-body .create-post-text:focus {
   outline: none;
-  color: #565656;
 }
 .create-post .create-post-footer {
   padding-top: 16px;

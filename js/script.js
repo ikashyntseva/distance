@@ -22,3 +22,25 @@ document.querySelector('.post-link-like').addEventListener('click', ev => {
   const likeIconHref = likeIcon.getAttribute('xlink:href');
   likeIcon.setAttribute('xlink:href', `${likeIconHref}-active`);
 });
+
+document.querySelector('.create-post-text').addEventListener('focus', ev => {
+  const { currentTarget } = ev;
+  const isEmpty =
+    currentTarget.textContent.trim() ===
+    currentTarget.getAttribute('placeholder');
+
+  if (isEmpty) {
+    currentTarget.textContent = '';
+    currentTarget.classList.remove('is-empty');
+  }
+});
+
+document.querySelector('.create-post-text').addEventListener('blur', ev => {
+  const { currentTarget } = ev;
+  const isEmpty = currentTarget.textContent.trim() === '';
+
+  if (isEmpty) {
+    currentTarget.textContent = currentTarget.getAttribute('placeholder');
+    currentTarget.classList.add('is-empty');
+  }
+});
